@@ -1,5 +1,8 @@
 package kr.green.springwebproject.dao;
 
-public interface UserMapper {
+import org.apache.ibatis.annotations.Param;
 
+public interface UserMapper 
+{
+	public String getEmail(@Param("id") String id);
 }
