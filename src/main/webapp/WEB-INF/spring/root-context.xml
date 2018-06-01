@@ -22,5 +22,14 @@
 	    </property>
 	    <property name="username" value="green"></property>
 	    <property name="password" value="1234"></property>
-	</bean>  	
+	</bean>  
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource" />
+    	<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+	</bean>
+	<bean id="Mapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    	<property name="mapperInterface" value="kr.green.springwebproject.dao.UserMapper"></property>
+    	<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	<mybatis-spring:scan base-package="kr.green.springwebproject.dao"/>	
 </beans>
