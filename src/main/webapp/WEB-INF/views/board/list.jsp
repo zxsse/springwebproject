@@ -25,17 +25,20 @@
 		       	<th class="b">title</th>
 		       	<th class="c">author</th>
 	  	</tr>
-    <tbody>
+    	<tbody>
     	<c:forEach items="${board}" var="list" varStatus="status">
 		    	<tr>
 	    			<td>${list.number}</td>
 		        	<td><a href="/board/detail?number=${list.number}">${list.title}</a></td> 
 		        	<td>${list.author}</td>
 		        </tr>
-	   </c:forEach>	
-    </tbody>
-  </table>
-</div>
-
+	   	</c:forEach>	
+    	</tbody>
+  		</table>
+  		<a href="/board/write">
+  		<button type="button" class="btn btn-primary">등록</button>
+  		</a>
+	</div>
+	
 </body>
 </html>

@@ -17,39 +17,39 @@
 <body>
 	<div class="container">
 		<div class="row "> 
-			<h3 class="offset-2 col-8">게시글보기</h3>
+			<h3 class="offset-2 col-8">게시글수정</h3>
 		</div>
-		<form>
+		<form method="post">
 			<input type="text" name="number" value="${board.number}" style="display:none" > 
 			<div class="row">		
 				<div class="offset-2 col-8">
 					<div class="form-group" >
 			  			<label for="usr">제목:</label>
-			  			<input type="text" class="form-control" id="usr" name="title"   value="${board.title}" disable>
+			  			<input type="text" class="form-control" id="usr" name="title"   value="${board.title}" >
 					</div>
 				</div>
 				<div class="offset-2 col-8">
 					<div class="form-group">
 			  			<label for="pwd">작성자:</label>
-			  			<input type="text" class="form-control" id="pwd" name="author"  value="${board.author}" disable>
+			  			<input type="text" class="form-control" id="pwd" name="author"  value="${board.author}" >
 					</div>
 				</div>
 				<div class="offset-2 col-8">
 					<div class="form-group">
 		  				<label for="comment">내용:</label>
-		  				<textarea class="form-control" rows="6" id="comment" name="contents" disable>${board.contents}</textarea>
+		  				<textarea class="form-control" rows="6" id="comment" name="contents" >${board.contents}</textarea>
 		  				
 					</div>
 				</div>
-				
+				<div class="offset-2 col-8">
+					
+					<button type="submit" class="btn btn-primary">수정</button>
+					<a href="/board/list"> 
+					<button type="button" class="btn btn-primary">취소</button>
+					</a>
+				</div>
 			</div>
 		</form>
-		<div class="offset-2 col-8">
-					<a href="/board/list"> 
-					<button type="button" class="btn btn-primary">목록</button>
-					</a>
-					<a href="/board/modify?number=${board.number}"><button type="button" class="btn btn-primary">수정</button></a>
-				</div>
 	</div>
 </body>
 </html>

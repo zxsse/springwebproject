@@ -16,4 +16,7 @@ public interface BoardMapper
 	public Board getBoardId(@Param("number") int number);
 	
 	
+	
+	
+	public void modifyBoard(@Param("board")Board board);
 }

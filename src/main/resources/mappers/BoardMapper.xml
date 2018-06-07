@@ -15,4 +15,10 @@
     select * from board where number = ${number}
   </select>
   
+   <select id="modifyBoard">
+ 	 update board set 
+ 	 title=#{board.title}, contents=#{board.contents}, author=#{board.author}
+ 	 where number = #{board.number} 
+  </select>
+  
 </mapper>
