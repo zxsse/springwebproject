@@ -6,6 +6,13 @@
   <select id="getBoard" resultType="kr.green.springwebproject.dao.Board">
     select * from board
   </select>
+   <select id="setBoard" resultType="kr.green.springwebproject.dao.BoardMapper">
+    insert into board (title,contents, author) 
+    values (#{title}, #{contents},#{author})
+  </select>
   
+  <select id="getBoardId" resultType="kr.green.springwebproject.dao.Board">
+    select * from board where number = ${number}
+  </select>
   
 </mapper>

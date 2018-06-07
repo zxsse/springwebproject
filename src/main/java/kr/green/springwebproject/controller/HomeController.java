@@ -39,6 +39,9 @@ public class HomeController {
      System.out.println(id);
      if(id != null) {
      User user = userMapper.login(id,pw);
+     if(user != null)
+     return "redirect:/board/list";
+     
      System.out.println(user);
      
      
