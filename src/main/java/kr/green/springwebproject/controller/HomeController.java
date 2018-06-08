@@ -40,12 +40,12 @@ public class HomeController {
      if(id != null) {
      User user = userMapper.login(id,pw);
      if(user != null)
+     {
+    	 model.addAttribute("user", user);
+    	 
+    	 
+     }
      return "redirect:/board/list";
-     
-     System.out.println(user);
-     
-     
-    System.out.println(email);
      }
      ArrayList<Board> list = (ArrayList)boardMapper.getBoard();
      System.out.println("게시판 리스트");

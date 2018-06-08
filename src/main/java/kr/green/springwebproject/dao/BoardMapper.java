@@ -15,8 +15,11 @@ public interface BoardMapper
 	
 	public Board getBoardId(@Param("number") int number);
 	
-	
-	
-	
 	public void modifyBoard(@Param("board")Board board);
+	
+	public void writeBoard(@Param("board")Board board); //set,update-insert-modify 모두 set이다 set은 void
+														//쿼리에 입력하는거면 void  바로나오면 리턴타입이있음
+	
+	
+	
 }

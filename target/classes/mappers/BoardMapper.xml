@@ -20,5 +20,9 @@
  	 title=#{board.title}, contents=#{board.contents}, author=#{board.author}
  	 where number = #{board.number} 
   </select>
+  <insert id="writeBoard">
+  	insert into board (title,contents,author) values(#{board.title},#{board.contents},#{board.author})
+  	
+  </insert>
   
 </mapper>
