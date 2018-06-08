@@ -14,6 +14,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<a href="/logout"><button type="button" class="btn btn-primary">로그아웃</button></a>
+<a href="/hostmodify"><button type="button" class="btn btn-primary">회원정보 수정</button></a>
 
 <div class="container">
   <h2>list</h2>

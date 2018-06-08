@@ -15,5 +15,6 @@
 		<input type="submit"/>
 		
 	</form>
+	<a href="/signup"> <button type="button">회원가입</button></a>
 </body>
 </html>

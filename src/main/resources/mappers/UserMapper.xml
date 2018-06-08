@@ -6,6 +6,17 @@
   <select id="login" resultType="kr.green.springwebproject.dao.User">
     select * from account where id = #{id} and pw = #{pw}
   </select>
+  <insert id="signup">
+    insert into account (id,pw,email) values(#{id},#{pw},#{email}) 
+  </insert>
   
-  
+    <select id="loginById" resultType="kr.green.springwebproject.dao.User">
+  	select * from account where id = #{id}
+  	
+  </select>
+  <select id="hostModify">
+ 	 update account set 
+ 	 pw=#{user.pw}, email=#{user.email}
+ 	 where id = #{user.id} 
+  </select>
 </mapper>

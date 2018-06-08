@@ -84,4 +84,6 @@ public class BoardController
 		
 		return "redirect:/board/list";
 	}
+	
+	
 }
