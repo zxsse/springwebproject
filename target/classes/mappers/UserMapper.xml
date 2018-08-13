@@ -7,16 +7,37 @@
     select * from account where id = #{id} and pw = #{pw}
   </select>
   <insert id="signup">
-    insert into account (id,pw,email) values(#{id},#{pw},#{email}) 
+    insert into account (id,pw,email,admin) values(#{user.id},#{user.pw},#{user.email},#{user.admin}) 
   </insert>
   
     <select id="loginById" resultType="kr.green.springwebproject.dao.User">
   	select * from account where id = #{id}
   	
   </select>
-  <select id="hostModify">
- 	 update account set 
+  <update id="hostModify">
+ 	 update account set  
  	 pw=#{user.pw}, email=#{user.email}
  	 where id = #{user.id} 
+  </update>
+  
+  <update id="updateUser">
+ 	 update account set 
+ 	  pw=#{user.pw}, email=#{user.email},
+ 	admin = #{user.admin}
+ 	 where id = #{user.id} 
+  </update>
+  
+  <select id="userListExcptLoginUser" resultType="kr.green.springwebproject.dao.User">
+  	select * from account where not id =#{user.id} limit #{cri.pageStart},#{cri.perPageNum}
   </select>
+ 	 
+ 	 
+ 		 
+ 		 <select id="getCountUserByAdmin" resultType="java.lang.Integer">
+	  	select count(id) from account where id != #{user.id}
+	  	</select>
+	  	
+	<delete id="deleteUser">
+	 	delete from account where id = #{user.id}
+	</delete>
 </mapper>

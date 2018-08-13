@@ -19,7 +19,7 @@
 		<div class="row "> 
 			<h3 class="offset-2 col-8">게시글작성</h3>
 		</div>
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 			<input type="text" name="number" style="display:none" > 
 			<div class="row">		
 				<div class="offset-2 col-8">
@@ -28,8 +28,12 @@
 			  			<input type="text" class="form-control" id="usr" name="title" >
 					</div>
 				</div>
+				<div class="form-group">
+		        <label>파일</label>
+		        <input type="file" class="form-control" name="file"/>
+		    </div>
+			</div>
 			
-				</div>
 				<div class="offset-2 col-8">
 					<div class="form-group">
 		  				<label for="comment">내용:</label>

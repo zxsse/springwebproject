@@ -22,6 +22,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter
 			response.sendRedirect("/");
 			return false;	
 		}
+		
 		return true;
 	}
 }

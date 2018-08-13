@@ -9,7 +9,7 @@
 <h1>
 	Hello world!  
 </h1>
-	<form>
+	<form id="formId" method="post">
 		<input type="text" name="id"/>
 		<input type="password" name="pw"/>
 		<input type="submit"/>

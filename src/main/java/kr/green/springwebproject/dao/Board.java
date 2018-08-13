@@ -1,5 +1,6 @@
 package kr.green.springwebproject.dao;
 
+import java.util.Date;
 
 /* DB에서 게시판 정보를 가져와 저장할 클래스*/
 public class Board 
@@ -7,11 +8,31 @@ public class Board
 	private Integer number;
 	private String title;
 	private String author;
+	private String disable="FALSE";
+	private Date created_date;
+	private String filepath;
+		
 
 
 	
-	
-	
+	public Date getCreated_date() {
+		return created_date;
+	}
+	public void setCreated_date(Date created_date) {
+		this.created_date = created_date;
+	}
+	public String getFilepath() {
+		return filepath;
+	}
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
+	public String getDisable() {
+		return disable;
+	}
+	public void setDisable(String disable) {
+		this.disable = disable;
+	}
 	public Integer getNumber() {
 		return number;
 	}

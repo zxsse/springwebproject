@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,19 +25,32 @@
 				<div class="offset-2 col-8">
 					<div class="form-group" >
 			  			<label for="usr">제목:</label>
-			  			<input type="text" class="form-control" id="usr" name="title"   value="${board.title}" disable>
+			  			<input type="text" class="form-control" id="usr" name="title"   value="${board.title}" disabled>
 					</div>
 				</div>
 				<div class="offset-2 col-8">
 					<div class="form-group">
 			  			<label for="pwd">작성자:</label>
-			  			<input type="text" class="form-control" id="pwd" name="author"  value="${board.author}" disable>
+			  			<input type="text" class="form-control" id="pwd" name="author"  value="${board.author}" disabled>
 					</div>
 				</div>
+					<div class="offset-2 col-8">
+					<div class="form-group">
+			  			<label for="file">첨부파일:</label>
+			  			<c:if test="${fileName != null }">
+			  			<div type="text" class="form-control" id="file" name="file" disabled><a href="/board/download?fileName=${filepath}">${fileName}</a></div>
+			  			</c:if>
+			  			<c:if test="${fileName == null }">
+			  				첨부파일없음
+			  			</c:if>
+			  			
+					</div>
+				</div>
+				
 				<div class="offset-2 col-8">
 					<div class="form-group">
 		  				<label for="comment">내용:</label>
-		  				<textarea class="form-control" rows="6" id="comment" name="contents" disable>${board.contents}</textarea>
+		  				<textarea class="form-control" rows="6" id="comment" name="contents" disabled>${board.contents}</textarea>
 		  				
 					</div>
 				</div>
@@ -48,7 +61,10 @@
 					<a href="/board/list"> 
 					<button type="button" class="btn btn-primary">목록</button>
 					</a>
+					<c:if test="${isAuthor}">
 					<a href="/board/modify?number=${board.number}"><button type="button" class="btn btn-primary">수정</button></a>
+					<a href="/board/delete?number=${board.number}"><button type="button" class="btn btn-primary">삭제</button></a>
+					</c:if>
 				</div>
 	</div>
 </body>

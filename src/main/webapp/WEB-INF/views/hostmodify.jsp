@@ -9,13 +9,14 @@
 <body>
 	<form method="post">
 		<label class="name" id="name"> 이름 :</label>
-		<input type="text" name="id" id="textname" disabled>
+		<input type="text" name="id" id="textname" disabled value="${nowUser.id}">
 		<label class="pw" id="pw"> 비밀번호 :</label>
 		<input type="password" name="pw" id="textpw">
 		<label class="email" id="email"> 이메일 :</label>
-		<input type="text" name="email" id="textemail">
+		<input type="text" name="email" id="textemail" value="${nowUser.email}">
 		<button type="submit" class="btn btn-primary">수정</button>
 		<a href="/"><button type="button" class="btn btn-primary">취소</button></a>
+		<a href="/member/withdrawal"><button type="button" class="btn btn-primary">탈퇴</button></a>
 	</form>
 	
 </body>

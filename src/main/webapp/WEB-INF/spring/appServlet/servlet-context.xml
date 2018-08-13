@@ -26,6 +26,7 @@
 	<beans:bean id="loginInterceptor" class="kr.green.springwebproject.interceptor.LoginInterceptor"></beans:bean>
 	<beans:bean id="authInterceptor" class="kr.green.springwebproject.interceptor.AuthInterceptor"></beans:bean>
 	<beans:bean id="unAuthInterceptor" class="kr.green.springwebproject.interceptor.UnAuthInterceptor"></beans:bean>
+	<beans:bean id="adminInterceptor" class="kr.green.springwebproject.interceptor.AdminInterceptor"></beans:bean>
 	
 		<interceptors>
 			<interceptor>
@@ -45,11 +46,24 @@
 				<beans:ref bean="unAuthInterceptor"/>
 			</interceptor>
 			
+			<interceptor>
+				<mapping path="/admin/*"/>
+				<beans:ref bean="adminInterceptor"/>
+			</interceptor>
+			
 			
 		</interceptors>	
 		
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <!-- 업로드 최대 크기 10Mb -->
+	    <beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean>
 	
 	
-	
-	
+	<beans:bean id="uploadPath" class="java.lang.String">
+	    <!--
+		<beans:constructor-arg value="서버에 저장할 경로"></beans:constructor-arg>
+		-->
+	    <beans:constructor-arg value="D:\\dj\\git\\upload"></beans:constructor-arg>
+	</beans:bean>	
 </beans:beans>

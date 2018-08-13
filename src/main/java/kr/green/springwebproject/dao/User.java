@@ -7,9 +7,26 @@ public class User
 	private String id;
 	private String pw;
 	private String email;
+	private String admin;
+	private String superadmin;
 	
 	
-	
+	public String getSuperadmin() {
+		return superadmin;
+	}
+
+	public void setSuperadmin(String superadmin) {
+		this.superadmin = superadmin;
+	}
+
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
+
 	/* 멤버 변수에 접근하기 위한 gettr어ㅏ */
 	public String getId() {
 		return id;

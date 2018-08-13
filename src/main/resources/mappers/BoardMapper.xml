@@ -4,8 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.green.springwebproject.dao.BoardMapper">
   <select id="getBoard" resultType="kr.green.springwebproject.dao.Board">
-    select * from board
+    select * from board where disable='FALSE' order by number desc
   </select>
+  
    <select id="setBoard" resultType="kr.green.springwebproject.dao.BoardMapper">
     insert into board (title,contents, author) 
     values (#{title}, #{contents},#{author})
@@ -15,15 +16,79 @@
     select * from board where number = ${number}
   </select>
   
-   <select id="modifyBoard">
+   <update id="modifyBoard">
  	 update board set 
- 	 title=#{board.title}, contents=#{board.contents}, author=#{board.author}
+ 	 title=#{board.title}, contents=#{board.contents}, author=#{board.author}, created_date = #{board.created_date}, filepath = #{board.filepath} 
+ 
  	 where number = #{board.number} 
-  </select>
+  </update>
+
   <insert id="writeBoard">
-  	insert into board (title,contents,author) values(#{board.title},#{board.contents},#{board.author})
+  	insert into board (title,contents,author,filepath) values(#{board.title},#{board.contents},#{board.author},#{board.filepath})
   	
   </insert>
   
+  <select id="getListPage" resultType="kr.green.springwebproject.dao.Board">
+  	select * from board where disable='FALSE' order by number desc limit #{pageStart},#{perPageNum}
+  </select>
 
+	<select id="getCountBoard" resultType="java.lang.Integer">
+  	select Count(number) from board where disable='FALSE' 
+  	</select>
+  	
+  	<select id="getCountBoardByTitle" resultType="java.lang.Integer">
+  		select Count(number) from board where disable='FALSE' and title like #{search}
+  	</select>
+  	
+  	<select id="getListPageByTitle" resultType="kr.green.springwebproject.dao.Board">
+  		select * from board where disable='FALSE' and title like  #{search} order by number desc limit #{cri.pageStart},#{cri.perPageNum}
+  	</select>
+  	
+  		<select id="getCountBoardByAuthor" resultType="java.lang.Integer">
+  		select Count(number) from board where disable='FALSE' and  author like #{search}
+  	</select>
+  	
+  	<select id="getListPageByAuthor" resultType="kr.green.springwebproject.dao.Board">
+  		select * from board where disable='FALSE'and  author like  #{search} order by number desc limit #{cri.pageStart},#{cri.perPageNum}
+  	</select>
+  	
+  		<select id="getCountBoardByContents" resultType="java.lang.Integer">
+  		select Count(number) from board where disable='FALSE' and contents like #{search}
+  	</select>
+  	
+  	<select id="getListPageByContents" resultType="kr.green.springwebproject.dao.Board">
+  		select * from board where disable='FALSE' and contents like  #{search} order by number desc limit #{cri.pageStart},#{cri.perPageNum}
+   	</select>
+  	
+	  <update id="modifyBoardByDisable">
+	 	 update board set 
+	 	 disable = #{board.disable}
+	 	 where number = #{board.number} 
+ 	 </update>	
+ 	   
+ 	   <select id="getBoardAll" resultType="kr.green.springwebproject.dao.Board">
+    	select * from board order by number desc
+       </select>
+       
+        <select id="getListPageByAdmin" resultType="kr.green.springwebproject.dao.Board">
+  		select * from board  order by number desc limit #{pageStart},#{perPageNum}
+ 		 </select>
+ 		 
+ 		 <select id="getCountBoardByAdmin" resultType="java.lang.Integer">
+	  	select Count(number) from board 
+	  	</select>
+	  	
+		 <select id="searchByAuthor"	resultType="kr.green.springwebproject.dao.Board">
+	  	select * from board where author = #{author}  and disable='FALSE' order by number desc limit #{cri.pageStart},#{cri.perPageNum}
+	  	</select>
+	  	
+        <select id="getCountByAuthor" resultType="java.lang.Integer">
+	  	select Count(number) from board where author = #{author} and disable='FALSE'
+	  	</select>
+	  	
+	 	<delete id="deleteBoardByDisalbe">
+	 	delete from board where number = #{board.number}
+	 	</delete>
+	  	
+	  	
 </mapper>

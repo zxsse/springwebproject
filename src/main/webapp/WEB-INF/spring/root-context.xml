@@ -30,8 +30,24 @@
 	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
     	<property name="mapperInterface" value="kr.green.springwebproject.dao.UserMapper"></property>
     	<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-	</bean>
+	</bean>	
 	  
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	    <property name="host" value="smtp.gmail.com" />
+	    <property name="port" value="587" />
+	    <property name="username" value="zxsse1234@gmail.com" />
+	    <property name="password" value="ehdwns12" />
+	    <property name="javaMailProperties">
+	        <props>
+            <prop key="mail.transport.protocol">smtp</prop>
+            <prop key="mail.smtp.auth">true</prop>
+            <prop key="mail.smtp.starttls.enable">true</prop>
+            <prop key="mail.debug">true</prop>
+        </props>
+    </property>
+	</bean>
+	
 	
 	<mybatis-spring:scan base-package="kr.green.springwebproject.dao"/>	
+	<context:component-scan base-package="kr.green.springwebproject.service"/>
 </beans>
